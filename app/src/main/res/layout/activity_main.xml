@@ -14,27 +14,34 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="3dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="190dp"
-        android:layout_height="65dp"
-        android:text="Button"
+    <EditText
+        android:id="@+id/editTextCuenta"
+        android:layout_width="410dp"
+        android:layout_height="61dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Número de cuenta"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="379dp" />
+        tools:layout_editor_absoluteY="357dp" />
+
+    <EditText
+        android:id="@+id/editTextPIN"
+        android:layout_width="405dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="numberPassword"
+        android:text="PIN"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCuenta"
+        tools:layout_editor_absoluteX="3dp" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="197dp"
-        android:layout_height="64dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="214dp"
-        tools:layout_editor_absoluteY="382dp" />
+        android:id="@+id/buttonIngresar"
+        android:layout_width="140dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="48dp"
+        android:text="Ingresar"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPIN"
+        tools:layout_editor_absoluteX="135dp" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="193dp"
-        android:layout_height="62dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="214dp"
-        tools:layout_editor_absoluteY="524dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
