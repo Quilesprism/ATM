@@ -10,31 +10,36 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/grupo_aval"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-10dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/grupo_aval" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="598dp" />
+        android:layout_marginTop="186dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="196dp"
         android:layout_height="51dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="75dp"
         android:text="Saldo"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="351dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="207dp"
         android:layout_height="50dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="75dp"
         android:text="Clave"
-        tools:layout_editor_absoluteX="200dp"
-        tools:layout_editor_absoluteY="351dp" />
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

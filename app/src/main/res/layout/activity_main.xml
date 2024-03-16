@@ -10,9 +10,10 @@
         android:id="@+id/imageView"
         android:layout_width="411dp"
         android:layout_height="341dp"
-        app:srcCompat="@drawable/grupo_aval"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="3dp" />
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/grupo_aval" />
 
     <EditText
         android:id="@+id/editTextCuenta"
@@ -21,27 +22,29 @@
         android:ems="10"
         android:inputType="text"
         android:text="Número de cuenta"
-        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="357dp" />
 
     <EditText
         android:id="@+id/editTextPIN"
         android:layout_width="405dp"
         android:layout_height="63dp"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="52dp"
         android:ems="10"
         android:inputType="numberPassword"
         android:text="PIN"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCuenta"
-        tools:layout_editor_absoluteX="3dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCuenta" />
 
     <Button
         android:id="@+id/buttonIngresar"
         android:layout_width="140dp"
         android:layout_height="54dp"
+        android:layout_marginStart="135dp"
         android:layout_marginTop="48dp"
         android:text="Ingresar"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPIN"
-        tools:layout_editor_absoluteX="135dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPIN" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
