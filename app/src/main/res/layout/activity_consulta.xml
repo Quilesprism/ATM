@@ -20,26 +20,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="186dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/btnsaldo"
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnsaldo"
         android:layout_width="196dp"
         android:layout_height="51dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="75dp"
         android:text="Saldo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        tools:layout_editor_absoluteY="361dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnclave"
         android:layout_width="207dp"
         android:layout_height="50dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="75dp"
         android:text="Clave"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintStart_toEndOf="@+id/btnsaldo"
+        tools:layout_editor_absoluteY="361dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
