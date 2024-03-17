@@ -29,6 +29,7 @@
         android:layout_height="51dp"
         android:layout_marginStart="2dp"
         android:text="Saldo"
+        android:backgroundTint="#FF3030"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="361dp" />
 
@@ -38,6 +39,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="2dp"
         android:text="Clave"
+        android:backgroundTint="#FF3030"
         app:layout_constraintStart_toEndOf="@+id/btnsaldo"
         tools:layout_editor_absoluteY="361dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
