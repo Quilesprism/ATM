@@ -30,7 +30,6 @@
         android:layout_height="49dp"
         android:layout_marginTop="21dp"
         android:text="Retiros"
-        android:backgroundTint="#FF3030"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -38,9 +37,8 @@
         android:id="@+id/btnSalir"
         android:layout_width="200dp"
         android:layout_height="51dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="38dp"
         android:text="Salir"
-        android:backgroundTint="#FF3030"
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/btnRetiros" />
 
@@ -51,7 +49,6 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="21dp"
         android:text="Consultas"
-        android:backgroundTint="#FF3030"
         app:layout_constraintStart_toEndOf="@+id/btnRetiros"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -60,18 +57,8 @@
         android:layout_width="200dp"
         android:layout_height="52dp"
         android:layout_marginTop="38dp"
-        android:text="Depositar saldo"
-        android:backgroundTint="#FF3030"
+        android:text="NO SE"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRetiros" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="203dp"
-        android:layout_height="48dp"
-        android:text="Transferencias"
-        android:backgroundTint="#FF3030"
-        tools:layout_editor_absoluteX="203dp"
-        tools:layout_editor_absoluteY="480dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
