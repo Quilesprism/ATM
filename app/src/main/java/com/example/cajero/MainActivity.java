@@ -12,8 +12,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonLogin;
 
     private RequestQueue requestQueue;
-    String url = "https://atm-api-eight.vercel.app/api/login";
+    String url = "https://atm-api-eight.vercel.app/api/user/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,33 +56,37 @@ public class MainActivity extends AppCompatActivity {
         final String password = editTextPassword.getText().toString().trim();
 
         // Creando una solicitud POST usando StringRequest
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Manejar la respuesta del servidor, por ejemplo, mostrar un mensaje o iniciar una nueva actividad
-                        Toast.makeText(MainActivity.this, "Respuesta del servidor: " + response, Toast.LENGTH_SHORT).show();
+        try {
+            JSONObject jsonParams = new JSONObject();
+            jsonParams.put("accountNumber", username);
+            jsonParams.put("password", password);
+
+            JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url, jsonParams, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        // Mostrando el mensaje de respuesta en un Toast
+                        double balance = response.getDouble("balance");
+                        String accountNumber = response.getString("accountNumber");
+                        Toast.makeText(getApplicationContext(), "Bienvenido " + accountNumber + " su saldo es: " + balance, Toast.LENGTH_SHORT).show();
+                    } catch (JSONException ex) {
+                        Toast.makeText(getApplicationContext(), "Error al procesar la respuesta" + ex.getMessage(), Toast.LENGTH_SHORT).show();
+                        ex.printStackTrace();
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Manejar errores de la solicitud, por ejemplo, mostrar un mensaje de error
-                        Toast.makeText(MainActivity.this, "Error al iniciar sesión: " + error.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                }) {
-            @Override
-            protected Map<String, String> getParams() {
-                // Definir los parámetros de la solicitud POST (nombre de usuario y contraseña)
-                Map<String, String> params = new HashMap<>();
-                params.put("accountNumber,", username);
-                params.put("password", password);
-                return params;
-            }
-        };
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // Mostrando el mensaje de error en un Toast
+                    Toast.makeText(getApplicationContext(), "Error al procesar la solicitud", Toast.LENGTH_SHORT).show();
+                }
+            });
+            Volley.newRequestQueue(this).add(stringRequest);
+        } catch (JSONException ex) {
+            Toast.makeText(getApplicationContext(), "Error al procesar la solicitud", Toast.LENGTH_SHORT).show();
+        }
 
         // Agregando la solicitud a la cola de solicitudes
-        requestQueue.add(stringRequest);
     }
 
 
