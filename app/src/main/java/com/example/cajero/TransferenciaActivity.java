@@ -27,7 +27,7 @@ public class TransferenciaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_deposito);
+        setContentView(R.layout.activity_transferencia);
 
         txtMonto = findViewById(R.id.txtMonto);
         Button btnAcpetar = findViewById(R.id.btnAceptar);
