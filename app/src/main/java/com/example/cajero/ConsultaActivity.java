@@ -9,7 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Models.Usuario;
+import com.example.cajero.models.Account;
+
 
 public class ConsultaActivity extends AppCompatActivity {
     private Button bntSaldo;
@@ -24,7 +25,7 @@ public class ConsultaActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                double balance = getIntent().getDoubleExtra("saldo", 0.0);
+                double balance = Account.getInstance().getMount();
                 txtSaldo.setText(String.valueOf(balance));
             }
 

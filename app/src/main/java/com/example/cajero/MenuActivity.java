@@ -7,7 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import Models.Usuario;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
+import com.example.cajero.models.Account;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -16,6 +26,8 @@ public class MenuActivity extends AppCompatActivity {
     Button btnRetiros;
     Button btnDeposito;
     Button btnTrans;
+
+    String url = "https://atm-api-eight.vercel.app/api/account/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +55,16 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, ConsultaActivity.class);
-                intent.putExtra("saldo", balance);
                 startActivity(intent);
             }
         });
+
+        btnDeposito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, DepositoActivity.class));
+            }
+        });
     }
+
 }

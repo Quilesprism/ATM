@@ -16,15 +16,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.cajero.models.Account;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import Models.Usuario;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         // Mostrando el mensaje de respuesta en un Toast
                         double balance = response.getDouble("balance");
                         String accountNumber = response.getString("accountNumber");
+                        Account account = new Account(accountNumber,balance);
                         Toast.makeText(getApplicationContext(), "Bienvenido " + accountNumber + " su saldo es: " + balance, Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
