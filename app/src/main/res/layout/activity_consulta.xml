@@ -6,10 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".ConsultaActivity">
 
+    <TextView
+        android:id="@+id/txtS"
+        android:layout_width="340dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="74dp"
+        android:textSize="48sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnsaldo" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="77dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnsaldo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/grupo_aval" />
@@ -19,6 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="186dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnsaldo"
         app:srcCompat="@drawable/logo" />
@@ -28,18 +49,25 @@
         android:layout_width="196dp"
         android:layout_height="51dp"
         android:layout_marginStart="2dp"
-        android:text="Saldo"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="4dp"
         android:backgroundTint="#FF3030"
+        android:text="Saldo"
+        app:layout_constraintEnd_toStartOf="@+id/btnclave"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="361dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/btnclave"
         android:layout_width="207dp"
         android:layout_height="50dp"
-        android:layout_marginStart="2dp"
-        android:text="Clave"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="2dp"
         android:backgroundTint="#FF3030"
+        android:text="Clave"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnsaldo"
-        tools:layout_editor_absoluteY="361dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

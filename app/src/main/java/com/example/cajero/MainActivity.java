@@ -23,6 +23,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import Models.Usuario;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             jsonParams.put("accountNumber", username);
             jsonParams.put("password", password);
 
+
             JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url, jsonParams, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
@@ -70,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
                         double balance = response.getDouble("balance");
                         String accountNumber = response.getString("accountNumber");
                         Toast.makeText(getApplicationContext(), "Bienvenido " + accountNumber + " su saldo es: " + balance, Toast.LENGTH_SHORT).show();
+
                         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                        intent.putExtra("saldo", balance);
                         startActivity(intent);
                         finish();
                     } catch (JSONException ex) {

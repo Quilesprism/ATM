@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import Models.Usuario;
+
 public class MenuActivity extends AppCompatActivity {
 
     Button btnSalir;
@@ -23,7 +25,7 @@ public class MenuActivity extends AppCompatActivity {
         btnRetiros = findViewById(R.id.btnRetiros);
         btnDeposito = findViewById(R.id.btnDeposito);
         btnTrans = findViewById(R.id.btnTrans);
-
+        double balance = getIntent().getDoubleExtra("saldo", 0.0);
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,8 +35,16 @@ public class MenuActivity extends AppCompatActivity {
         btnRetiros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, RetiroActivity.class));
-
+                Intent intent = new Intent(MenuActivity.this, RetiroActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnConsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, ConsultaActivity.class);
+                intent.putExtra("saldo", balance);
+                startActivity(intent);
             }
         });
     }
