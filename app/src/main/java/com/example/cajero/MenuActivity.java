@@ -7,18 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
-import com.example.cajero.models.Account;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.Serializable;
-
 public class MenuActivity extends AppCompatActivity {
 
     Button btnSalir;
@@ -62,7 +50,14 @@ public class MenuActivity extends AppCompatActivity {
         btnDeposito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, DepositoActivity.class));
+
+            }
+        });
+
+        btnTrans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, TransferenciaActivity.class));
             }
         });
     }

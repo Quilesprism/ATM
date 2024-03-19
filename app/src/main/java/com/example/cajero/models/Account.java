@@ -9,25 +9,19 @@ public class Account {
         this.mount = balance;
         Instance = Account.this;
     }
-
     public String getAccountNumber() {
         return accountNumber;
     }
-
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
-
     public double getMount() {
         return mount;
     }
-
     public void setMount(double balance) {
         this.mount = balance;
     }
-
     public static Account getInstance() {
         return Instance;
     }
-
 }
