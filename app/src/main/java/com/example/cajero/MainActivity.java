@@ -1,5 +1,6 @@
 package com.example.cajero;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -69,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
                         double balance = response.getDouble("balance");
                         String accountNumber = response.getString("accountNumber");
                         Toast.makeText(getApplicationContext(), "Bienvenido " + accountNumber + " su saldo es: " + balance, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                        startActivity(intent);
+                        finish();
                     } catch (JSONException ex) {
                         Toast.makeText(getApplicationContext(), "Error al procesar la respuesta" + ex.getMessage(), Toast.LENGTH_SHORT).show();
                         ex.printStackTrace();
@@ -85,8 +89,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (JSONException ex) {
             Toast.makeText(getApplicationContext(), "Error al procesar la solicitud", Toast.LENGTH_SHORT).show();
         }
-
-        // Agregando la solicitud a la cola de solicitudes
     }
 
 
