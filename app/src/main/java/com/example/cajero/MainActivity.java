@@ -68,10 +68,11 @@ public class MainActivity extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     try {
                         // Mostrando el mensaje de respuesta en un Toast
+                        JSONObject name = response.getJSONObject("person");
                         double balance = response.getDouble("balance");
                         String accountNumber = response.getString("accountNumber");
                         Account account = new Account(accountNumber,balance);
-                        Toast.makeText(getApplicationContext(), "Bienvenido " + accountNumber + " su saldo es: " + balance, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Bienvenido " + name.getString("name"), Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                         intent.putExtra("saldo", balance);
