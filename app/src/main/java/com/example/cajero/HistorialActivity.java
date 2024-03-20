@@ -55,7 +55,7 @@ public class HistorialActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
-                            // crear un buble para los json de respuesta
+                            // crear un bucle para los json de respuesta
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject transfer = response.getJSONObject(i);
                                 String transferInfo = "Monto de la transaccion: " + transfer.getInt("amount") +

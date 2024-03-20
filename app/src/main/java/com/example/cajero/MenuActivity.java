@@ -50,7 +50,7 @@ public class MenuActivity extends AppCompatActivity {
         btnDeposito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(MenuActivity.this, DepositoActivity.class));
             }
         });
 

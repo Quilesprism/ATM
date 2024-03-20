@@ -46,12 +46,12 @@ public class RetiroActivity extends AppCompatActivity {
         buttonWithdraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                withdrawAmount();
+                Retiro();
             }
         });
     }
 
-    public void withdrawAmount() {
+    public void Retiro() {
         final String accountNumber = editTextAccountNumber.getText().toString().trim();
         final String texta = editTextAmount.getText().toString().trim();
         Double amount = Double.parseDouble(texta);
