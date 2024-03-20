@@ -14,12 +14,14 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="74dp"
-        android:textSize="48sp"
         android:gravity="center"
+        android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnsaldo" />
+        app:layout_constraintTop_toBottomOf="@+id/btnsaldo"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -49,7 +51,7 @@
         android:layout_width="196dp"
         android:layout_height="51dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="4dp"
         android:backgroundTint="#FF3030"
         android:text="Saldo"
@@ -62,12 +64,27 @@
         android:layout_width="207dp"
         android:layout_height="50dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="2dp"
         android:backgroundTint="#FF3030"
         android:text="Clave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnsaldo"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/btnHT"
+        android:layout_width="206dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="203dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="14dp"
+        android:backgroundTint="#FF3030"
+        android:text="Historial"
+        app:layout_constraintBottom_toTopOf="@+id/txtS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnclave" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
