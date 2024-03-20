@@ -21,6 +21,9 @@
             android:name=".HistorialActivity"
             android:exported="false" />
         <activity
+            android:name=".ClaveActivity"
+            android:exported="false" />
+        <activity
             android:name=".TransferenciaActivity"
             android:exported="false" />
         <activity
