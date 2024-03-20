@@ -25,16 +25,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DepositoActivity extends AppCompatActivity {
+
     private EditText textDeposito;
     Account account = Account.getInstance();
     private Button btnD;
     private RequestQueue requestQueue;
     String url = "https://atm-api-eight.vercel.app/api/transaction/deposit";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_deposito);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
         textDeposito= findViewById(R.id.textDeposito);
         btnD = findViewById(R.id.btnD);
 
@@ -47,6 +55,7 @@ public class DepositoActivity extends AppCompatActivity {
             }
         });
     }
+
     public void Deposito(){
         final String accountNumber = account.getAccountNumber();
         final float amount  = Float.parseFloat(textDeposito.getText().toString());
@@ -58,7 +67,7 @@ public class DepositoActivity extends AppCompatActivity {
             JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url, jsonParams, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Toast.makeText(DepositoActivity.this, "Se ha depositado a la cuenta", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Se ha depositado a la cuenta", Toast.LENGTH_SHORT).show();
                     Account.getInstance().setMount(amount+Account.getInstance().getMount());
                     startActivity(new Intent(getApplicationContext(),MenuActivity.class));
                 }
@@ -79,5 +88,4 @@ public class DepositoActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Error al procesar la solicitud:  "+ex, Toast.LENGTH_SHORT).show();
         }
     }
-
-    }
+}

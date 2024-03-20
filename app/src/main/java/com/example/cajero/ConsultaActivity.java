@@ -13,14 +13,15 @@ import com.example.cajero.models.Account;
 
 
 public class ConsultaActivity extends AppCompatActivity {
-    private Button bntSaldo;
     private TextView txtSaldo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
-        bntSaldo = findViewById(R.id.btnsaldo);
+        Button bntSaldo = findViewById(R.id.btnsaldo);
         txtSaldo= findViewById(R.id.txtS);
+        Button btnClave = findViewById(R.id.btnclave);
+        Button btnHistorial = findViewById(R.id.btnHT);
         bntSaldo.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -29,6 +30,20 @@ public class ConsultaActivity extends AppCompatActivity {
                 txtSaldo.setText(String.valueOf(balance));
             }
 
+        });
+
+        btnHistorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),HistorialActivity.class));
+            }
+        });
+
+        btnClave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ClaveActivity.class));
+            }
         });
     }
 }

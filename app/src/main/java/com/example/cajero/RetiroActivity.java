@@ -19,17 +19,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.cajero.models.Account;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RetiroActivity extends AppCompatActivity {
 
-    private EditText editTextAccountNumber;
     private EditText editTextAmount;
-    private Button buttonWithdraw;
-
-    private RequestQueue requestQueue;
     String url = "https://atm-api-eight.vercel.app/api/transaction/withdraw";
 
     @Override
@@ -37,11 +34,10 @@ public class RetiroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retiro);
 
-        editTextAccountNumber = findViewById(R.id.editTextC);
         editTextAmount = findViewById(R.id.editTextM);
-        buttonWithdraw = findViewById(R.id.btnRetiro);
+        Button buttonWithdraw = findViewById(R.id.btnRetiro);
 
-        requestQueue = Volley.newRequestQueue(this);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         buttonWithdraw.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +48,7 @@ public class RetiroActivity extends AppCompatActivity {
     }
 
     public void Retiro() {
-        final String accountNumber = editTextAccountNumber.getText().toString().trim();
+        final String accountNumber = Account.getInstance().getAccountNumber();
         final String texta = editTextAmount.getText().toString().trim();
         Double amount = Double.parseDouble(texta);
         try {
@@ -65,8 +61,9 @@ public class RetiroActivity extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     try {
                         String message = response.getString("accountNumber");
-                        Toast.makeText(getApplicationContext(), "Retiro exitoso de la cuenta " + message , Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Retiro exitoso de la cuenta " + message, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                        Account.getInstance().setMount(amount-Account.getInstance().getMount());
                         startActivity(intent);
                         finish();
                     } catch (JSONException ex) {

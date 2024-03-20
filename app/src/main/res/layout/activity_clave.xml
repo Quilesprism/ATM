@@ -11,21 +11,16 @@
         android:id="@+id/btnPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginBottom="11dp"
         android:backgroundTint="#FE3030"
         android:text="Cambiar clave"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idPassNueva" />
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="486dp" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="380dp"
+        android:layout_height="204dp"
         android:layout_marginBottom="77dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnsaldo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -33,57 +28,68 @@
 
     <EditText
         android:id="@+id/idPassNueva"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="14dp"
+        android:layout_width="191dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:hint="Contraseña nueva"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="405dp" />
 
     <EditText
         android:id="@+id/idPassAntigua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="177dp"
+        android:layout_height="43dp"
         android:ems="10"
+        android:hint="Contraseña antigua"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="279dp" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="189dp"
+        android:layout_height="49dp"
         android:text="Ingrese contraseña antigua"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="221dp" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="186dp"
+        android:layout_width="360dp"
+        android:layout_height="87dp"
         android:layout_marginEnd="7dp"
+        android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnsaldo"
         app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="22dp"
+        android:layout_width="176dp"
+        android:layout_height="44dp"
         android:text="Ingrese contraseña nueva"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idPassAntigua" />
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="354dp" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="127dp"
+        android:layout_height="101dp"
+        app:srcCompat="@drawable/flechas"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="221dp" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="119dp"
+        android:layout_height="95dp"
+        app:srcCompat="@drawable/flechas_2"
+        tools:layout_editor_absoluteX="234dp"
+        tools:layout_editor_absoluteY="354dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
