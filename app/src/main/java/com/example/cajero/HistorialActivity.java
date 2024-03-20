@@ -41,7 +41,7 @@ public class HistorialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial);
 
-        recyclerView = findViewById(R.id.recyclerView); // Agregar esta línea
+        recyclerView = findViewById(R.id.recyclerView);
         String cuenta = Account.getInstance().getAccountNumber();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new TransferAdapter();
@@ -55,6 +55,7 @@ public class HistorialActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
+                            // crear un buble para los json de respuesta
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject transfer = response.getJSONObject(i);
                                 String transferInfo = "Monto de la transaccion: " + transfer.getInt("amount") +
@@ -70,7 +71,7 @@ public class HistorialActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Manejar errores de la solicitud
+
                 error.printStackTrace();
             }
         });
