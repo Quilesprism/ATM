@@ -24,6 +24,8 @@ import com.example.cajero.models.Account;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.SQLOutput;
+
 public class DepositoActivity extends AppCompatActivity {
 
     private EditText textDeposito;
@@ -57,35 +59,38 @@ public class DepositoActivity extends AppCompatActivity {
     }
 
     public void Deposito(){
-        final String accountNumber = account.getAccountNumber();
-        final float amount  = Float.parseFloat(textDeposito.getText().toString());
-
-        try {
-            JSONObject jsonParams = new JSONObject();
-            jsonParams.put("accountNumber", accountNumber);
-            jsonParams.put("amount",amount );
-            JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url, jsonParams, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    Toast.makeText(getApplicationContext(), "Se ha depositado a la cuenta", Toast.LENGTH_SHORT).show();
-                    Account.getInstance().setMount(amount+Account.getInstance().getMount());
-                    startActivity(new Intent(getApplicationContext(),MenuActivity.class));
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError volleyError) {
-                    String responseBody = new String(volleyError.networkResponse.data);
-                    try {
-                        JSONObject jsonResponse = new JSONObject(responseBody);
-                        Toast.makeText(getApplicationContext(), "Error al procesar la solicitud: "+ jsonResponse.getString("message"), Toast.LENGTH_SHORT).show();
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
+        if(textDeposito.getText().toString().isEmpty()){
+            textDeposito.setError("Por favor Ingrese monto");
+        }else{
+            final String accountNumber = account.getAccountNumber();
+            final float amount  = Float.parseFloat(textDeposito.getText().toString());
+            try {
+                JSONObject jsonParams = new JSONObject();
+                jsonParams.put("accountNumber", accountNumber);
+                jsonParams.put("amount",amount );
+                JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url, jsonParams, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(getApplicationContext(), "Se ha depositado a la cuenta", Toast.LENGTH_SHORT).show();
+                        Account.getInstance().setMount(amount+Account.getInstance().getMount());
+                        startActivity(new Intent(getApplicationContext(),MenuActivity.class));
                     }
-                }
-            });
-            Volley.newRequestQueue(this).add(stringRequest);
-        }catch (JSONException ex){
-            Toast.makeText(getApplicationContext(), "Error al procesar la solicitud:  "+ex, Toast.LENGTH_SHORT).show();
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        String responseBody = new String(volleyError.networkResponse.data);
+                        try {
+                            JSONObject jsonResponse = new JSONObject(responseBody);
+                            Toast.makeText(getApplicationContext(), "Error al procesar la solicitud: "+ jsonResponse.getString("message"), Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                });
+                Volley.newRequestQueue(this).add(stringRequest);
+            }catch (JSONException ex){
+                Toast.makeText(getApplicationContext(), "Error al procesar la solicitud:  "+ex, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

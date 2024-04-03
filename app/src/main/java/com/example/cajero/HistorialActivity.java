@@ -30,9 +30,8 @@ import java.util.ArrayList;
 
 
 public class HistorialActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
     private TransferAdapter adapter;
-    private ArrayList<String> transferList = new ArrayList<>();
+    private final ArrayList<String> transferList = new ArrayList<>();
 
     private static final String Urlbase = "https://atm-api-eight.vercel.app/api/transfer/";
 
@@ -41,7 +40,7 @@ public class HistorialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         String cuenta = Account.getInstance().getAccountNumber();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new TransferAdapter();
@@ -71,7 +70,6 @@ public class HistorialActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
                 error.printStackTrace();
             }
         });
